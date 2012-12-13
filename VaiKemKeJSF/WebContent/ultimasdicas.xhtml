@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
+
+<h:head>
+	<title>Conheça os peixes</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Ultimas dicas</h3>
+			<div class="tudomat">
+			<h:form>
+
+					<p:dataTable width="705" border="1" styleClass="tabelaultmat" value="#{dicaBean.dicas}" var="dic" rowKey="#{dic.id}"
+                            selection="#{dicaBean.dica}" selectionMode="single" resizableColumns="true" paginator="true" rowsPerPageTemplate="9, 12 , 30, 50" >
+
+						<p:column footerClass="localmatdic" headerClass="localmatdic">
+							<p:graphicImage value="#{dic.capa}" width="90" />
+						</p:column>
+
+						<p:column footerClass="localmat3" headerClass="localmat3"
+							id="localmat3">
+							<f:facet name="header">Titulo</f:facet>
+							<div class="testeitulo">
+								<h:outputLabel value="#{dic.titulo}" styleClass="localmat3" />
+							</div>
+						</p:column>
+
+						
+						<p:column footerClass="localmat5" headerClass="localmat5">
+							<div class="testeitulo">
+								<h:commandButton type="button" value="Detalhes" onclick="descricaoDaLinha_#{dic.id}.show()" styleClass="botaodetalhes"></h:commandButton>
+								<p:dialog modal="=true" header="Videos de dicas" widgetVar="descricaoDaLinha_#{dic.id}" width="900" height="780" resizable="false" styleClass="dialogomat" showEffect="clip" hideEffect="clip" draggable="false">
+									<h:outputText value="#{dic.descricao}" escape="false"></h:outputText>
+								</p:dialog>
+									</div>
+						</p:column>
+						
+					</p:dataTable>
+				</h:form>
+			
+			</div>
+
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+  <title><ui:insert name="title">Parceiros</ui:insert></title>
+</head>
+
+<body>
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="conteudo">
+	
+	<h3 class="parceiros">Parceiros</h3> <br/>
+	
+	<div class="tudoparceiro">
+	
+	<h4 class="fotos">Seja um parceiro da vai kem ké: <a href="mailto:contato@vaikemke.com.br" class="contato"> contato@vaikemke.com.br </a></h4><br/>
+			
+			<h:form id="form">  
+  
+    <p:dataGrid var="par" value="#{parceiroBean.parceiros}" columns="4"  
+        rows="12" paginator="true"  
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="9,12,15">  
+  
+        <p:panel header="#{par.nome}" style="text-align:center;">  
+            <h:panelGrid columns="1" style="width:100%">  
+                <p:graphicImage value="Parceiros/#{par.foto}" width="80px;" height="50px"/>   
+  
+  
+                <h:commandButton type="button" value="Detalhes" onclick="descricaoDaLinha_#{par.id}.show()" styleClass="botaodetalhes" style="margin-bottom:10px;"/> 
+            </h:panelGrid>  
+        </p:panel>  
+  
+    </p:dataGrid>  
+      
+    <p:dialog header="Parceiro" widgetVar="descricaoDaLinha_#{par.id}" modal="true">  
+        <p:outputPanel id="parDetail" style="text-align:center;" layout="block">  
+          	<div class="imgcentro">
+            <p:graphicImage value="Parceiros/#{par.foto}" width="200px;" style="text-align:center;"/>  
+          	</div>
+              
+            <h:panelGrid  columns="2" cellpadding="5" cellspacing="20">  
+                <h:outputLabel for="modelNo" value="Nome: " />  
+                <h:outputText id="modelNo" value="#{par.nome}" />  
+                  
+                <h:outputLabel for="year" value="Informações: " />  
+                <h:outputText id="year" value="#{par.obs}" />  
+                  
+                <h:outputLabel for="color" value="site: " />  
+                <a href="http://www.reidapesca.com.br/" target="_blank">#{par.site}</a>
+            </h:panelGrid>  
+        </p:outputPanel>  
+    </p:dialog>  
+  
+</h:form>  
+			
+			
+	</div>
+				</ui:define>
+</ui:composition>
+</body>
+
+</html>

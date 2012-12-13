@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title><ui:insert name="title">Pesque seu pesqueiro</ui:insert></title>
+	<link rel="stylesheet" type="text/css" href="home.css" media="all" />
+	<ui:insert name="head" />	
+
+</h:head>
+
+<h:body>
+<div class="tdhome">
+		<div id="cabecalho">
+			<ui:insert name="cabecalho">
+				<ui:include src="cabecalho.xhtml" />
+			</ui:insert>
+		</div>
+
+		<div id="conteudoCentro">
+			<div id="conteudo">
+				<f:view contentType="text/html; charset=UTF-8" encoding="UTF-8">
+				<ui:insert name="conteudo">
+				</ui:insert>
+			</f:view>
+			</div>
+
+		</div>
+
+		<div id="rodape">
+			<ui:insert name="rodape">
+				<ui:include src="rodape.xhtml" />
+			</ui:insert>
+		</div>
+		</div>
+</h:body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+  <link rel="stylesheet" type="text/css" href="contato.css" media="all" />
+  <title>Contato</title>
+</head>
+
+<h:body>
+ 
+ <ui:composition template="/template.xhtml">
+	<ui:define name="conteudo">
+ <div class="tudocontato">
+ <h3 class="contato">Contato</h3> <br/>
+ 
+ 
+  <p:fieldset legend="Facebook" toggleable="true" toggleSpeed="500" style="width:300px;" collapsed="true">   
+        <h:panelGrid columns="1" cellpadding="10">  
+		<iframe src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/VaiKemKePescaEsportiva" width="292&amp;height=590&amp;show_faces=true&amp;colorscheme=light&amp;stream=true&amp;border_color&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:100px;"  /> 
+        </h:panelGrid>  
+    </p:fieldset>  
+ 
+ <p:fieldset legend="Duvidas, informações e susgestões" toggleable="true" toggleSpeed="500" style="width:300px;" collapsed="true">  
+        <h:panelGrid columns="1" cellpadding="10" cellspacing="10">  
+            <h:outputText value="Para dúvidas, informações e sugestões, basta entrar em contrato pelo seguinte e-mail: " style="font-size: 12; font-weight:bold"/> <br/>
+            <a href="mailto:informacoes@vaikemke.com.br" target="blank" >informacoes@vaikemke.com.br</a>
+        </h:panelGrid>  
+    </p:fieldset>  
+    
+    <p:fieldset legend="Envie suas fotos e matérias" toggleable="true" toggleSpeed="500" style="width:300px;" collapsed="true">  
+        <h:panelGrid columns="1" cellpadding="10" cellspacing="10">  
+            <h:outputText value="Se você fez uma pescaria de deseja nos enviar suas fotos, entre em contato através do e-mail abaixo para que possamos pô-las em nossa galeria de fotos ou criarmos a matéria: " style="font-size: 12; font-weight:bold"/> <br/>
+            <a href="mailto:materias@vaikemke.com.br" target="blank" >materias@vaikemke.com.br</a>
+        </h:panelGrid>  
+    </p:fieldset>  
+    
+<p:dataTable value="#{integranteBean.integrantes}" var="pesq">
+#{pesq.nome}
+</p:dataTable> 
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+
+</html>

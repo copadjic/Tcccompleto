@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">
+<head>
+<link rel="stylesheet" type="text/css" href="home2.css" media="all" />
+  <title>Home</title>
+</head>
+
+<body>
+<div class="tdhome">
+	<div class = "tudologotipo">
+	<div class="descricaoho" >
+	<iframe class="face" src="http://www.facebook.com/plugins/like.php?href=https://www.facebook.com/VaiKemKePescaEsportiva"
+        scrolling="no" frameborder="0" style="border:none; width:250px; height:60px"></iframe>
+	</div>
+	</div>
+	<div class="login">
+	E-mail: <p:inputText /> 
+    Senha: <p:password/>
+    <p:commandButton value="Login" />  
+	</div>
+	
+	
+	<div class="homeesquerdaho">
+		<div class="homeesquerda2ho">
+	<h2 class="menuhomeho">Menu</h2>
+		<ul class="listaesquerdaho">
+		<li class="lidist"><a href="home.jsp?pagina=conhecaospeixes">Conheça os peixes</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=galeria.html">Galeria</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=materias.jsp">Matérias</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=listarpesq">Pesqueiros</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=previsao.jsp">Previsão</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=pesquisaavancada">Pesquisa avançada</a></li>
+		
+	</ul>
+
+	<h2 class="menuhomeho">Vai kem ké</h2>
+		<ul class="listaesquerdaho">
+		<li class="lidist"><a href="contato.jsf">Contato</a></li>
+		<li class="lidist"><a href="historia.jsf">História</a></li>
+		<li class="lidist"><a href="integrantes.jsf">Integrantes</a></li>
+		<li class="lidist"><a href="parceiros.jsf">Parceiros</a></li>
+		
+	</ul>
+	
+	<h2 class="menuhomeho">Administrador</h2>
+		<ul class="listaesquerdaho">
+		<li class="lidist"><a href="home.jsp?pagina=defdestaque">Definir destaque</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=excluirpeixe">Gerenciar lazeres</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=criarmateria">Gerenciar matérias</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=novopeixe.jsp">Gerenciar peixes</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=novolazer.jsp">Gerenciar pesqueiro</a></li>
+		<li class="lidist"><a href="home.jsp?pagina=addfoto.html">Gerenciar usuários</a></li>
+	</ul>
+		</div>
+	</div>
+	
+	<div class="homecentro">
+	
+<!-- 	<% String pagina = request.getParameter("pagina"); 
+		if(pagina == null || pagina.isEmpty()) {
+	%>
+		<jsp:forward page="home.jsp?pagina=listarpesq"></jsp:forward>
+		
+	<%
+		}else{
+	%>
+	
+		<jsp:include page="<%=pagina%>"></jsp:include>
+	
+	<%
+		}
+	%>-->
+	</div>
+	
+	
+	
+	<div class ="homedireita">
+		<div class ="homedireita2">
+	<h2  class="menuhomeho2">Busca</h2>
+	<input type ="text" class="campobusca"/> 
+	<input type="submit" value=" Ok " class="botaobusca"></input>
+	<h2  class="menuhomeho2">Destaque</h2>
+	<ul class="listadireita">
+		<li class="destaque">????</li>
+		</ul>
+	<h2  class="menuhomeho2">Top 5</h2>
+	<ul class="listadireita">
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+
+		</ul>
+		<h2  class="menuhomeho2">Mais Visitados</h2>
+		<ul class="listadireita">
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+		<li class="lidist">????</li>
+	</ul>
+	</div>
+	</div>
+	<div class="rodape">
+	<h4 class="rodape">Vai kem ké pesca esportiva</h4>
+	</div>
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="/Adm/templateadm.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Gerenciamento de dicas</h3>
+			<div class="tudomat">
+			<h:form class="criarmat">
+				<h:panelGrid columns="2" styleClass="distanciausuarios" cellspacing="15" >
+						
+
+					<h:outputText value="Data da postagem: " styleClass="espacotexto"/>
+					<p:calendar size="100" styleClass="espacoselect" value="#{dicaBean.dica.data}"/>
+
+					<h:outputText value="Foto de capa:  " styleClass="espacotexto"/>
+					<h:inputText size="100" styleClass="espacoselect" value="#{dicaBean.dica.capa}"/>
+
+					<h:outputText value="Título:  " styleClass="espacotexto"/>
+					<h:inputTextarea rows="10" styleClass="espaco"  value="#{dicaBean.dica.titulo}"/>
+					
+					<h:outputText value="Descreva a dica: " styleClass="espacotexto"/>
+					<h:inputTextarea rows="20" styleClass="espaco" value="#{dicaBean.dica.descricao}"/>
+
+				</h:panelGrid>
+
+					<div class="cadatex">
+							<p:commandButton value="Salvar"  action="#{dicaBean.salvar}"/>
+					</div>
+			</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

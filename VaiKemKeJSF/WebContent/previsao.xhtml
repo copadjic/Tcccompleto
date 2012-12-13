@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<title>Previsão</title>
+</head>
+<body>
+<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+	<h3 class="criarmat">Previsão</h3>
+	<div class="tudomat">
+<div class="histpeixe">
+  <p:accordionPanel value="#{previsaoBean.previsoes}" var="prev" styleClass="tudoprevisao">  
+    <p:tab title="#{prev.tipoprevisao}">  
+        <h:panelGrid columns="1" >  
+            <iframe src="#{prev.cidade}" scrolling='no' frameborder='0'  marginheight='0' marginwidth='0' class="tudoprevisao2" width="200"/>  
+        </h:panelGrid>  
+    </p:tab>  
+    </p:accordionPanel>
+</div>
+</div>
+</ui:define>
+</ui:composition>
+</body>
+</html>

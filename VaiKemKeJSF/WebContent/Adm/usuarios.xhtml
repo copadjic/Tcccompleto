@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="criarmateria.css"
+		media="all" />
+	<title>Gerenciamento de matérias</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/Adm/templateadm.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Gerenciamento de usuários</h3>
+			<div class="tudomat">
+			
+			<!-- 
+					<h:form>
+			<h:dataTable value="#{usuarioBean.usuarios}" var="p" border="2" width="400" styleClass="margemtabela">
+				<h:column>
+					<f:facet name="header">Apelido</f:facet>
+					#{p.apelido}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					#{p.nome}
+				</h:column>
+				
+		
+			</h:dataTable>
+		</h:form> -->
+			
+					<h:form class="usuarios">
+				<h:panelGrid columns="2" style="margin-bottom:10px" styleClass="distanciausuarios" cellspacing="15">
+	
+						<h:outputText for="apelido" value="Apelido:  " styleClass="espacotexto" />
+						<h:inputText id="apelido" size="100" styleClass="espaco2" value="#{usuarioBean.usuario.apelido}" />
+	
+						<h:outputText value="Nome:  " styleClass="espacotexto" for="nome"/>
+						<h:inputText size="100" styleClass="espaco2" value="#{usuarioBean.usuario.nome}" id="nome"/>
+						
+						<h:outputText value="Sobrenome:  " styleClass="espacotexto"/>
+						<h:inputText size="100" styleClass="espaco2" value="#{usuarioBean.usuario.sobrenome}"/>
+						
+						<h:outputText value="E-mail:  " styleClass="espacotexto"/>
+						<h:inputText size="100" styleClass="espaco2" value="#{usuarioBean.usuario.email}"/>
+						
+						<h:outputText value="Senha:  " styleClass="espacotexto"/>
+						<h:inputSecret size="100" styleClass="espaco2" value="#{usuarioBean.usuario.senha}"/>
+	
+						<h:outputText value="Confirme a senha:  " styleClass="espacotexto"/>
+						<h:inputSecret size="100" styleClass="espaco2" />
+						
+						<h:outputText value="Tipo de usuário: " styleClass="espacotexto"/>
+						
+						<h:selectOneMenu styleClass="espaco22" value="#{usuarioBean.idusuario}">
+	
+							<f:selectItem itemLabel="Administrador" itemValue="1" />
+							<f:selectItem itemLabel="Usuário comum" itemValue="2" />
+							
+							</h:selectOneMenu>
+				</h:panelGrid>
+					
+						<div class="cadatex">
+	
+	
+								<p:commandButton value="Salvar" action="#{usuarioBean.salvar}" styleClass="cadusuarios"/>
+								
+						</div>
+					</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

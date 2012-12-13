@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">Unicapital Transforme seu Talento em Carreira</ui:insert></title>
+	<link rel="stylesheet" type="text/css" href="layout.css" />
+
+</h:head>
+
+
+<h:body>
+	
+	<p:layout fullPage="true">
+		
+		<p:layoutUnit header="Teste" position="north" size="100" resizable="false" closable="false" >
+			<ui:insert name="cabecalho">
+				<ui:include src="cabecalho.xhtml" />
+			</ui:insert>
+		</p:layoutUnit>
+	
+	
+		
+		
+		<p:layoutUnit position="center">
+			<ui:insert name="conteudo">
+			</ui:insert>
+		</p:layoutUnit>
+		
+	</p:layout>
+
+</h:body>
+
+</html>

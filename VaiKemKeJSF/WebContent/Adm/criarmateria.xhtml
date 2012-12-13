@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="criarmateria.css"
+		media="all" />
+	<title>Gerenciamento de matérias</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/Adm/templateadm.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Gerenciamento de matérias</h3>
+
+
+			<div class="tudomat">
+
+
+			<h:form class="criarmat">
+
+				<h:panelGrid columns="2" cellspacing="15" styleClass="distanciausuarios">
+
+					<h:outputLabel for="data" value="Data da matéria: " styleClass="espacotexto"/>
+					<p:calendar size="100" id="data" styleClass="espacoselect" value="#{materiaBean.materia.data}"/>
+
+					<h:outputText value="Local da matéria: " styleClass="espacotexto"/>  
+        			<h:selectOneMenu styleClass="espacoselect" value="#{materiaBean.idpesqueiro}">  
+            		<f:selectItems value="#{pesqueiroBean.pesqueiros}" var="idpe" itemValue="#{idpe.id}"/> 
+        			</h:selectOneMenu>
+
+					<h:outputLabel for="fotocapa" value="Foto de capa:  " styleClass="espacotexto"/>
+					<h:inputText size="100" id="fotocapa" styleClass="espacoselect" value="#{materiaBean.materia.fotoCapa}" required="true" label="foto da capa"/>
+
+					<h:outputLabel for="titulo" value="Título:  " styleClass="espacotexto"/>
+					<h:inputTextarea id="titulo" rows="10" styleClass="espaco" value="#{materiaBean.materia.titulo}"  required="true"  label="titulo"/>
+
+					<h:outputLabel for="descricao" value="Descreva a pescaria: " styleClass="espacotexto"/>
+					<h:inputTextarea id="descricao" rows="20" styleClass="espaco" value="#{materiaBean.materia.descricao}"  required="true"  label="descrição"/>
+
+				</h:panelGrid>
+					<div class="cadatex">
+							<p:commandButton value="Salvar"  action="#{materiaBean.salvar}" />
+					</div>
+
+			</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

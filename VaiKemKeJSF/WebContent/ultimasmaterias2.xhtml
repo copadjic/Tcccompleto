@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
+
+<h:head>
+	<title>Conheça os peixes</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Ultimas matérias</h3>
+			<div class="tudomat">
+			<p:panel header="Lista de Comentários">
+		<h:form>
+			<p:dataTable id="Coment" var="comentario"
+				value="#{materiaBean.listarComentarioPorMateria}"  rowKey="#{comentario.id}"
+				selection="#{materiaBean.comentario}">
+				
+				<p:column headerText="Nome" style="width:200px">  
+                   <h:outputLabel value="#{comentario.nome}" />
+                </p:column>
+                
+                <p:column headerText="Comentario" style="width:200px">  
+                   <h:outputLabel value="#{comentario.comentario}" />
+                </p:column>
+
+				<f:facet name="footer">
+					.
+				</f:facet>
+
+			</p:dataTable>
+
+		</h:form>
+</p:panel>    
+
+
+			</div>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

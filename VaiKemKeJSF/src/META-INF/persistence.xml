@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="VaiKemKeJSF" transaction-type="RESOURCE_LOCAL">
+		<class>vaikemkejsf.model.Cidade</class>
+		<class>vaikemkejsf.model.Comentario</class>
+		<class>vaikemkejsf.model.Dica</class>
+		<class>vaikemkejsf.model.Estado</class>
+		<class>vaikemkejsf.model.Foto</class>
+		<class>vaikemkejsf.model.Galeriapeixe</class>
+		<class>vaikemkejsf.model.Lazer</class>
+		<class>vaikemkejsf.model.Materia</class>
+		<class>vaikemkejsf.model.Parceiro</class>
+		<class>vaikemkejsf.model.Peixe</class>
+		<class>vaikemkejsf.model.Pesqueiro</class>
+		<class>vaikemkejsf.model.Previsao</class>
+		<class>vaikemkejsf.model.Tipousuario</class>
+		<class>vaikemkejsf.model.Usuario</class>
+		<class>vaikemkejsf.model.Visita</class>
+		<class>vaikemkejsf.model.Integrante</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="190215"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>

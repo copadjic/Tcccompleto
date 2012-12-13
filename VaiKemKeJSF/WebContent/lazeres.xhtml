@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<link rel="stylesheet" type="text/css" href="home.css" media="all" />
+  <title>Gerenciamento de peixes</title>
+
+</h:head>
+
+<h:body>
+
+<ui:composition template="/template.xhtml">
+	<ui:define name="conteudo">
+	
+<h3 class="gerpeixe">Gerenciamento de lazer</h3>
+
+<div class="tudopeixe">
+<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+	<h:outputText value="Selecione o lazer: " />  
+        <p:selectOneMenu styleClass="espaco">  
+            <f:selectItem itemLabel="Novo lazer" itemValue="" />  
+            <f:selectItem itemLabel="Option 1" itemValue="1" />  
+        </p:selectOneMenu>
+       
+        <h:outputText value="Nome: " />   
+		<p:inputText styleClass="espaco"/>  
+		
+ <div class="cadatex">
+<h:form class="peixe">
+  
+	 <p:commandButton value="Atualizar" /> 
+	  <p:commandButton value="Cadastar" /> 
+	   <p:commandButton value="Excluir" />
+	    
+</h:form>
+</div> 
+</h:panelGrid>
+</div>
+</ui:define>
+</ui:composition>
+
+</h:body>
+
+</html>

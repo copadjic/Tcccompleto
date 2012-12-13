@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="criarmat">Pesqueiros</h3>
+			<div class="tudomat">
+			
+			<h5 class="fotos">Para promover seu pesqueiro, entre em contato: <a href="mailto:contato@vaikemke.com.br" class="contato"> contato@vaikemke.com.br </a></h5><br/>
+					
+					
+					<p:dataTable value="#{pesqueiroBean.pesqueiros}" selection="#{pesqueiroBean.pesqueiros}" var="pesq" width="700" styleClass="tabelaultmat" paginator="true" rowsPerPageTemplate="5, 10 , 15, 30, 50" rows="5">
+					
+      					  <f:facet name="header">  
+           					 Conheça os pesqueiros  
+        				</f:facet>  
+					
+					<p:column  headerText="Nome" footerClass="conhecpes" headerClass="conhecpes" filterBy="#{pesq.nome}">
+							<h:outputLabel value="#{pesq.nome}" escape="false"	styleClass="conhecpes2" />
+					</p:column>
+				
+					<p:column  footerClass="conhecpes" headerClass="conhecpes" headerText="Cidade" filterBy="#{pesq.cidade}" >
+								<h:outputLabel value="#{pesq.cidade}" escape="false"	styleClass="conhecpes2" />
+						</p:column>
+						
+						<p:column  footerClass="conhecpes" headerClass="conhecpes" headerText="Estado" filterBy="#{pesq.cidade.estado}"  style="width:15%">
+								<h:outputLabel value="#{pesq.cidade.estado}" escape="false"	styleClass="conhecpes2"/>
+						</p:column>
+						
+					<p:column  footerClass="conhecpes" headerClass="conhecpes" style="width:0.0001%">
+					<iframe src="#{pesq.previsao}" width="120" height="100" scrolling='no' frameborder='0'  marginheight='0' marginwidth='0'/>
+					</p:column>
+						
+						<p:column footerClass="localmat5" headerClass="localmat5" style="width:10%">
+							<div class="testeitulo5">
+								<h:commandButton value="Detalhes" styleClass="botaodetalhes" onclick="descricaoDaLinha_#{pesq.id}.show()"/>
+								</div>
+						
+		<p:dialog header="Detalhes do pesqueiro" modal="true" widgetVar="descricaoDaLinha_#{pesq.id}"  width="800"  height="785" showEffect="explode" hideEffect="explode" resizable="false" position="top" style="margin-top: 30px;" >  
+  
+  			<div class="conhecpesnome">
+            <h:outputLabel value="#{pesq.nome}" escape="false"	styleClass="" /> <br/><br/> 
+             </div>
+  			<div class="espacoesquera">
+            <h:outputText value="Cidade:" styleClass="negrito"/>  
+         	 <h:outputLabel value="#{pesq.cidade}" escape="false"	styleClass="conhecpes2" /><br/><br/> 
+  
+            <h:outputText value="Estado:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.cidade.estado}" escape="false"	styleClass="conhecpes2"/><br/><br/> 
+            
+            <!-- <h:outputText value="Peixe principal:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.peixe}" escape="false"	styleClass="conhecpes2"/><br/><br/>
+ 
+ 			<h:outputText value="Todos os peixes:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.peixes}" escape="false" styleClass="conhecpes2"/><br/><br/>	
+            
+            <h:outputText value="Comodidades:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.lazers}" escape="false" styleClass="conhecpes2"/><br/><br/>-->
+            
+            <h:outputText value="Site:" styleClass="negrito"/>  
+            <a href="#{pesq.site}" target="_blank" class="conhecpes2">#{pesq.site}</a><br/><br/>
+            
+            <h:outputText value="Informações adicionais:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.infoadc}" escape="false" styleClass="conhecpes2"/><br/><br/>	
+            
+            <h:outputText value="Como chegar:" styleClass="negrito"/>  
+            <h:outputLabel value="#{pesq.endereco}" escape="false" styleClass="conhecpes2"/><a href="#{pesq.mapa}" target="_blank" class="conhecpes2">Mapa</a><br/><br/><br/><br/><br/><br/>
+            	
+  			</div>
+    </p:dialog>  
+						</p:column>
+						
+					</p:dataTable>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+
+</html>

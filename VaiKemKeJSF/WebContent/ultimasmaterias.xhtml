@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
+
+<h:head>
+	<title>Conheça os peixes</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+		
+		<h:form id="formMateria">
+
+			<h3 class="criarmat">Ultimas matérias</h3>
+			<div class="tudomat">
+					<p:dataTable width="700" border="1" styleClass="tabelaultmat" value="#{materiaBean.materias}" var="mat" id="Materia" rowKey="#{mat.id}" paginator="true"
+					 rowsPerPageTemplate="5, 10 , 15, 30, 50" rows="5" >
+
+						  <f:facet name="header">  
+           					 Últimas matérias 
+        				</f:facet> 
+						
+						<p:column footerClass="localmat" headerClass="localmat4" style="width:1%">
+							<p:graphicImage value="#{mat.fotoCapa}" width="90"/>
+						</p:column>
+
+						<p:column footerClass="localmat" headerClass="localmat" style="width:25%;">
+							<f:facet name="header">Local da materia</f:facet>
+							<div class="testeitulo">
+								<h:outputLabel value="#{mat.pesqueiro.nome}" escape="false"	styleClass="localmat" /><br/>
+									
+							</div>
+						</p:column>
+
+						<p:column footerClass="localmat3" headerClass="localmat3" id="localmat3" style="width:30%;" >
+							<f:facet name="header">Titulo</f:facet>
+							<div class="testeitulo">
+								<h:outputLabel value="#{mat.titulo}" styleClass="localmat3" />
+							</div>
+						</p:column>
+
+						<p:column footerClass="localmat2" headerClass="localmat2" style="width:15%; text-align:center;">
+							<f:facet name="header">Data </f:facet>
+								<h:outputLabel value="#{mat.data}" styleClass="localmat2">
+									<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+								</h:outputLabel>
+						</p:column>
+						
+						
+						
+						<p:column footerClass="localmat5" headerClass="localmat5" style="width:10%">
+							<div class="testeitulo5">
+							<h:commandButton type="button" value="Detalhes" onclick="descricaoDaLinha_#{mat.id}.show()" styleClass="botaodetalhes" style="margin-bottom:10px;"/>
+							<h:commandButton type="button" value="Pesqueiro" onclick="descricaoPesqueiro_#{mat.id}.show()" styleClass="botaodetalhes" style="margin-bottom:10px;"/>
+							<h:commandButton type="button" value="Comentarios" onclick="descricaoComentario_#{mat.id}.show()" styleClass="botaodetalhess" style="margin-bottom:10px;" />
+							
+							</div>
+							<p:dialog modal="=true" header="Detalhes da pescaria" widgetVar="descricaoDaLinha_#{mat.id}" width="900" height="785" resizable="false" showEffect="explode" hideEffect="explode" draggable="false" position="top" style="margin-top: 15px; margin-bottom: 15px" styleClass="dialogomat" >
+									<div class="dialogomatt2">
+									<h:outputText value="Local da matéria: " styleClass="negrito" />
+									<h:outputLabel value="#{mat.pesqueiro.nome}" escape="false"	styleClass="localmat" id="local"/>  <br/>   <br/>
+									
+									<h:outputText value="Cidade: " styleClass="negrito" />
+									<h:outputLabel value="#{mat.pesqueiro.cidade.nome}" escape="false"	styleClass="localmat" />  <br/> <br/>
+								
+									<h:outputText value="Estado: " styleClass="negrito" />
+									<h:outputLabel value="#{mat.pesqueiro.cidade.estado.nome}" escape="false" styleClass="localmat" /><br/><br/>
+									
+									<h:outputText value="Data da pescaria: " styleClass="negrito" />
+									<h:outputLabel value="#{mat.data}" styleClass="localmat2">
+									<f:convertDateTime pattern="dd/MM/yyyy"/>
+									</h:outputLabel><br/><br/>
+									
+									<div class="dialogomatt">
+									<h:outputText value="#{mat.descricao}" escape="false" styleClass="dialogomatt"/>
+									</div>
+									</div>
+								</p:dialog>
+									
+									<p:dialog modal="=true" header="Detalhes do pesqueiro" widgetVar="descricaoPesqueiro_#{mat.id}" width="900"  height="785" resizable="false" showEffect="explode" hideEffect="explode" draggable="false"  styleClass="dialogomat" position="top" style="margin-top: 15px; margin-bottom: 15px">				
+				<div class="espacoesquera">
+	            <h:outputText value="Nome:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.nome}" escape="false"	styleClass="conhecpes2" /> <br/><br/> 
+	             
+	            <h:outputText value="Cidade:" styleClass="negrito"/>  
+	         	 <h:outputLabel value="#{mat.pesqueiro.cidade}" escape="false"	styleClass="conhecpes2" /><br/><br/> 
+	  
+	            <h:outputText value="Estado:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.cidade.estado}" escape="false"	styleClass="conhecpes2"/><br/><br/> 
+	            
+	           <!--  <h:outputText value="Peixe principal:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.peixe}" escape="false"	styleClass="conhecpes2"/><br/><br/>
+	 
+	 			<h:outputText value="Todos os peixes:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.peixes}" escape="false" styleClass="conhecpes2"/><br/><br/>
+	            
+	            <h:outputText value="Comodidades:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.lazers}" escape="false" styleClass="conhecpes2"/><br/><br/>	 -->
+	            
+	            <h:outputText value="Site:" styleClass="negrito"/>  
+	            <a href="#{mat.pesqueiro.site}" target="_blank" class="conhecpes2">#{mat.pesqueiro.site}</a><br/><br/>
+	            
+	            <h:outputText value="Informações adicionais:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.infoadc}" escape="false" styleClass="conhecpes2"/><br/><br/>	
+	            
+	            <h:outputText value="Como chegar:" styleClass="negrito"/>  
+	            <h:outputLabel value="#{mat.pesqueiro.endereco}" escape="false" styleClass="conhecpes2"/><a href="#{mat.pesqueiro.mapa}" target="_blank" class="conhecpes2">Mapa</a><br/><br/>
+	  			
+	  			</div>
+				</p:dialog>	
+				
+						
+				
+				 <p:dialog modal="=true" header="Comentários" widgetVar="descricaoComentario_#{mat.id}" width="800"  height="785" resizable="false"  position="top" style="margin-top: 15px; margin-bottom: 15px" showEffect="explode" hideEffect="explode" draggable="false"  styleClass="dialogomat">
+									<h:panelGrid columns="1" styleClass="distanciausuarios">
+									<h:outputLabel for="fotocapa" value="Nome completo:  " styleClass="fontecomente" />
+									<h:inputText style="width:200px;" id="nome" styleClass="espacoselect" value="#{materiaBean.comentario.nome}" />
+				
+				
+									<h:outputLabel for="titulo" value="Comentário:  " styleClass="fontecomente" />
+									<h:inputTextarea id="titulo" rows="5" styleClass="espaco"  required="true"  label="titulo" value="#{materiaBean.comentario.comentario}"/>
+									
+									</h:panelGrid>
+									<div class="cadatex">
+											<h:commandButton type="submit" value="Salvar" action="#{materiaBean.salvarComentario}"/>
+									</div>
+									
+									<br/>
+									<div class="traco"></div>
+							
+							
+					
+							
+							<p:dataTable id="Coment" value="#{mat.comentarios}" var="comentario" >
+				
+								<p:column headerText="Nome" style="width:200px">  <br/>
+				                   <h:outputLabel value="#{comentario.nome}" />
+				                </p:column>
+				                
+				                <p:column headerText="Comentario" style="width:200px"> <br/> 
+				                   <h:outputLabel value="#{comentario.comentario}" />
+				                </p:column>
+				
+							</p:dataTable>
+							
+							
+							
+							
+									
+			
+
+				
+				</p:dialog>
+				
+				
+								
+					</p:column>
+					</p:dataTable>
+									
+			</div>
+			
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

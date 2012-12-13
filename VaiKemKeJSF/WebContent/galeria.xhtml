@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Galeria</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="conteudo">
+
+			<h3 class="pesqueiros">Galeria de fotos</h3>
+
+			<div class="tudogaleria">
+			
+				<h5 class="fotos">Envie sua foto para : <a href="mailto:fotos@vaikemke.com.br" class="contato"> fotos@vaikemke.com.br </a></h5><br/>
+				
+				<div class="margemgaleria">
+				<p:galleria value="#{galeriaBean.images}" var="image" styleClass="margemgaleria" frameWidth="60" panelWidth="700" panelHeight="760" >
+				<p:graphicImage value="#{image.endereco}" />
+				</p:galleria>
+				</div>
+				<!-- <h:panelGrid columns="2" border="2" styleClass="galeriafotos">
+				<h:link outcome="galeriatamba">
+				<p:graphicImage value="/Galeria/Tambacus/galeriatamba.JPG" width="330" onclick="galeriatamba.xhtml" id="1"/>
+				</h:link>
+				<h:link outcome="galeriatamba">
+				<p:graphicImage value="/Galeria/Tilapias/galeriatilapia.jpg" width="330" onclick="galeriatamba.xhtml" id="2"/>
+				</h:link>
+				
+				</h:panelGrid> -->
+			
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

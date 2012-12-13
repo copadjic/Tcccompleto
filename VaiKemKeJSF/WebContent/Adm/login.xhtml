@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/templatelogin.xhtml">
+		<ui:define name="conteudo">
+
+		<h:form id="formulario" action="Acesso">
+			<div class="acesso">
+
+				<h:panelGrid styleClass="acesso" columns="2" rendered="#{loginBean.usuarioLogado!=null}">
+					<div class="titulo">Deseja realmente sair?</div>
+				</h:panelGrid>
+
+				<h:panelGrid styleClass="acesso1" columns="2" rendered="#{loginBean.usuarioLogado!=null}">
+					<h:commandButton styleClass="logout" action="#{loginBean.logout}"
+						value="Sim" />
+					<h:commandButton styleClass="logout" action="#{loginBean.login}"
+						value="Não" />
+				</h:panelGrid>
+
+				<h:panelGrid columns="2" rendered="#{loginBean.usuarioLogado==null}"
+					styleClass="acesso" border="1">
+					<h:outputLabel styleClass="log" value="Usuario:" />
+					<h:inputText styleClass="log" value="#{loginBean.email}" style="width:150px;"/>
+
+					<h:outputLabel styleClass="log" value="Senha:" />
+					<h:inputSecret styleClass="log" value="#{loginBean.senha}" style="width:150px;"/>
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="1" rendered="#{loginBean.usuarioLogado==null}"
+					styleClass="acesso1">
+					<h:commandButton styleClass="botaoLogar" action="#{loginBean.login}" value="Login" />
+				</h:panelGrid>
+			</div>
+		</h:form>
+		</ui:define>
+		</ui:composition>
+</html>

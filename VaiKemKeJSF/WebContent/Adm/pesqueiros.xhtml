@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <title>Gerenciamento de pesqueiros</title>
+</h:head>
+
+<h:body>
+<ui:composition template="/Adm/templateadm.xhtml">
+		<ui:define name="conteudo">
+
+<h3 class="pesqueiros">Gerenciamento de pesqueiros</h3>
+
+<div class="tudomat">
+
+
+<h:form class="pesqueiros">  
+<h:panelGrid columns="2" style="margin-bottom:10px" cellspacing="15" styleClass="margemtabelapesq">
+
+	<h:outputText value="Cidade: " styleClass="espacotexto"/>  
+        <h:selectOneMenu styleClass="espacoselect" value="#{pesqueiroBean.idcidade}">  
+            <f:selectItems value="#{cidadeBean.cidades}" var="cidad" itemValue="#{cidad.id}" styleClass="espacoselect"/>
+        </h:selectOneMenu>
+        
+        <h:outputText value="Nome do pesqueiro:  " styleClass="espacotexto"/>   
+		<h:inputText styleClass="espacoselect" value="#{pesqueiroBean.pesqueiro.nome}"/>  
+		
+		 <h:outputText value="Site:  " styleClass="espacotexto"/>   
+		<h:inputText styleClass="espacoselect" value="#{pesqueiroBean.pesqueiro.site}"/>
+		
+		<h:outputText value="Link previsão:  " styleClass="espacotexto"/>   
+		<h:inputText styleClass="espacoselect" value="#{pesqueiroBean.pesqueiro.previsao}"/>
+		
+		<h:outputText value="Mapa:  " styleClass="espacotexto"/>   
+		<h:inputText styleClass="espacoselect" value="#{pesqueiroBean.pesqueiro.mapa}"/>
+		
+		<h:outputText value="Como chegar: " styleClass="espacotexto"/>
+		<h:inputTextarea rows="10" cols="50" completeMethod="#{autoCompleteBean.completeArea}" value="#{pesqueiroBean.pesqueiro.endereco}" queryDelay="800" minQueryLength="4"/>
+		
+		<h:outputText value="Informações adicionais: " styleClass="espacotexto"/>
+		<h:inputTextarea rows="10" cols="50" completeMethod="#{autoCompleteBean.completeArea}" value="#{pesqueiroBean.pesqueiro.infoadc}" queryDelay="800" minQueryLength="4"/>
+		
+</h:panelGrid>
+					<div class="cadatex">
+							<p:commandButton value="Salvar"  action="#{pesqueiroBean.salvar}" />
+					</div>
+
+			</h:form>
+			</div>
+
+	</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>
